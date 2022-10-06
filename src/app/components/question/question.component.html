@@ -1,0 +1,45 @@
+<div class="question">
+  <h4>
+    {{ question.text }}
+  </h4>
+
+  <form [formGroup]="quizzForm">
+    <div *ngIf="question.type === 'radio'">
+      <mat-radio-group formArrayName="choices">
+        <mat-radio-button
+          [formGroupName]="i"
+          *ngFor="let choice of choices?.controls; let i = index"
+          [value]="choice.value"
+          (change)="selectRadioButton($event, i)"
+        >
+          {{ choice.value.label }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div *ngIf="question.type === 'checkbox'">
+      <span formArrayName="choices">
+        <mat-checkbox
+          [formGroupName]="i"
+          *ngFor="let choice of choices?.controls; let i = index"
+          [value]="choice.value"
+          (change)="selectCheckbox($event, i)"
+        >
+          {{ choice.value.label }}
+        </mat-checkbox>
+      </span>
+    </div>
+
+    <div class="text-center" *ngIf="question.type === 'text'">
+      <mat-form-field appearance="fill">
+        <mat-label>Réponse </mat-label>
+        <input matInput formControlName="answer" />
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="action">
+    <button mat-flat-button color="primary" (click)="next(question)">
+      Valider
+    </button>
+  </div>
+</div>

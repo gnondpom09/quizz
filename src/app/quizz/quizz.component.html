@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row *ngIf="question">
+    <span tappable (click)="redirectToHome()" class="text-header">
+      Question {{ question.index + 1 }} / {{ questions.length }}
+    </span>
+    <span class="spacer"></span>
+    <span class="text-header">
+      <app-timer (eventEndTimer)="viewResults()"></app-timer>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div *ngIf="question" class="content">
+  <app-question
+    [question]="question"
+    (eventNext)="nextQuestion(questions, $event)"
+  ></app-question>
+</div>

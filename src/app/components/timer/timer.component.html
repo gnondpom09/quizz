@@ -1,0 +1,10 @@
+<span
+  *ngIf="countDown$ | async as countDown"
+  class="timer"
+  [ngClass]="{
+    warning: countDown <= 30 && countDown > 10,
+    danger: countDown <= 10
+  }"
+>
+  {{ countDown }}
+</span>

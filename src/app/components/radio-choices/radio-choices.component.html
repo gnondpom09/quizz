@@ -1,0 +1,9 @@
+<mat-radio-group [formGroup]="form">
+  <mat-radio-button
+    formArrayName="choices"
+    *ngFor="let choice of choices.controls; let i = index"
+    [value]="choice"
+  >
+    {{ choice.value.label }}
+  </mat-radio-button>
+</mat-radio-group>

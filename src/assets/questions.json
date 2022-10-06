@@ -1,0 +1,58 @@
+{
+  "questions": [
+    {
+      "index": 0,
+      "text": "Le suffrage universel pour l'élection du Président de la République date de ",
+      "options": [
+        {
+          "label": "1832",
+          "isChecked": false
+        },
+        {
+          "label": "1958",
+          "isChecked": false
+        },
+        {
+          "label": "1962",
+          "isChecked": false
+        },
+        {
+          "label": "1998",
+          "isChecked": false
+        }
+      ],
+      "answers": ["1962"],
+      "type": "radio"
+    },
+    {
+      "index": 1,
+      "text": "La France a gardé une dizaine de possessions outre-mer, parmi celles-ci 0,25 lesquelles sont des TOM?",
+      "options": [
+        {
+          "label": "Mayotte",
+          "isChecked": false
+        },
+        {
+          "label": "Wallis et Futuna",
+          "isChecked": false
+        },
+        {
+          "label": "Guyanne",
+          "isChecked": false
+        },
+        {
+          "label": "Polynésie française",
+          "isChecked": false
+        }
+      ],
+      "answers": ["Wallis et Futuna", "Polynésie française"],
+      "type": "checkbox"
+    },
+    {
+      "index": 2,
+      "text": "Combien de rayures y a-t-il sur le drapeau américain ?",
+      "answers": ["13"],
+      "type": "text"
+    }
+  ]
+}

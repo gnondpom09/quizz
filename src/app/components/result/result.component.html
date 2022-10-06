@@ -1,0 +1,49 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button class="text-header" mat-flat-button (click)="redirectToHome()">
+      Accueil
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="result" *ngIf="result$ | async as result">
+  <div class="score">
+    <h2>Le quiz est terminé</h2>
+    <h1>{{ result.score }}/{{ result.steps.length }}</h1>
+    <h3>réponses justes</h3>
+    <p>
+      Meilleur score :
+      <span *ngIf="questions$ | async as questions">
+        {{ bestScore }} / {{ questions.length }}
+      </span>
+    </p>
+  </div>
+
+  <div class="detail" *ngIf="questions$ | async as questions">
+    <h3>Détail des résultats</h3>
+
+    <div *ngFor="let question of questions">
+      {{ question.text }}
+      <ul *ngIf="question.options; else textBlock">
+        <li *ngFor="let option of question.options; index as i">
+          {{ option.label }}
+          <span
+            *ngIf="question.answers.includes(option.label); else blockFalse"
+          >
+            <mat-icon class="check">check</mat-icon>
+          </span>
+
+          <ng-template #blockFalse>
+            <span>
+              <mat-icon class="wrong">close</mat-icon>
+            </span>
+          </ng-template>
+        </li>
+      </ul>
+
+      <ng-template #textBlock>
+        <p>réponse : {{ question.answers[0] }}</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
