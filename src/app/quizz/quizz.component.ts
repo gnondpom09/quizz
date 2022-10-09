@@ -15,7 +15,7 @@ import { ResultService } from '../services/result/result.service';
 export class QuizzComponent implements OnInit, OnDestroy {
   questions!: Question[];
 
-  question!: Question | undefined;
+  question!: Question;
 
   steps: Step[] = [];
 
@@ -66,8 +66,6 @@ export class QuizzComponent implements OnInit, OnDestroy {
     this.steps.push(step);
 
     this.score += this.getScore(step);
-
-    console.log(this.score);
 
     const result: Result = {
       steps: this.steps,

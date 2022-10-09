@@ -39,11 +39,8 @@ export class QuestionService {
     );
   }
 
-  getCurrentQuestion(
-    questions: Question[],
-    index: number
-  ): Question | undefined {
-    return questions.find((item) => item.index === index);
+  getCurrentQuestion(questions: Question[], index: number): Question {
+    return questions.find((item) => item.index === index) as Question;
   }
 
   private handleError(error: any) {

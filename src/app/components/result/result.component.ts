@@ -33,8 +33,6 @@ export class ResultComponent implements OnInit {
   }
 
   redirectToHome() {
-    console.log('toto');
-
     this.router.navigate(['/']);
 
     this.resultService.setResult({
